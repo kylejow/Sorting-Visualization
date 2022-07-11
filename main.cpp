@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include "display.h"
 
 using std::cout;
 using std::endl;
@@ -9,14 +10,7 @@ using std::vector;
 
 static vector<vector<char>> Display;
 
-void printDisplay(vector<vector<char>>& Display){
-    for(int i = 0; i < SizeDisplay; i++){
-        for(int j = 0; j < SizeDisplay; j++){
-            cout << Display[i][j] << ' ';
-        }
-        cout << "\n";
-    }
-}
+
 
 int main(){
     vector<char> line(SizeDisplay, ' ');
@@ -24,7 +18,7 @@ int main(){
         Display.push_back(line);
     }
     printDisplay(Display);
-
+    system("pause");
     std::string input;
     while(1){
         system("cls");
