@@ -2,8 +2,8 @@
 #include <iostream>
 #include "display.h"
 #include "selectionsort.h"
-#include "mergesort.h"
 #include "insertionsort.h"
+#include "mergesort.h"
 #include "quicksort.h"
 
 using std::cout;
@@ -12,13 +12,10 @@ using std::cin;
 using std::vector;
 #define SizeDisplay 5
 
-static vector<vector<char>> Display;
+static vector<vector<char>> Display(SizeDisplay, std::vector<char>(SizeDisplay, ' '));
 
 int main(){
-    vector<char> line(SizeDisplay, ' ');
-    for(int i = 0; i < SizeDisplay; i++){
-        Display.push_back(line);
-    }
+    vector<int> tosort = {4, 2, 3, 0, 1};
     std::string input;
     while(1){
         system("cls");
@@ -30,16 +27,20 @@ int main(){
         cin >> input;
         if(input == "1"){
             system ("cls");
-            vector<int> tosort = {4, 2, 3, 0, 1};
             SelectionSort(tosort, Display);
-            //printvect(tosort);
             system("pause");
         }else if(input == "2"){
             system ("cls");
+            //InsertionSort(tosort, Display);
+            system("pause");
         }else if(input == "3"){
             system ("cls");
+            //MergeSort(tosort, Display);
+            system("pause");
         }else if(input == "4"){
             system ("cls");
+            //QuickSort(tosort, Display);
+            system("pause");
         }else if(input == "q")
          break;
     }

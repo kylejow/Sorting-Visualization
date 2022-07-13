@@ -1,6 +1,5 @@
 #include "selectionsort.h"
 #include "display.h"
-#include <windows.h>
 
 void SelectionSort(std::vector<int>& numbers, std::vector<std::vector<char>>& Display){
     int length = numbers.size();
@@ -14,9 +13,8 @@ void SelectionSort(std::vector<int>& numbers, std::vector<std::vector<char>>& Di
         int temp = numbers[min];
         numbers[min] = numbers[i];
         numbers[i] = temp;
-        updateDisplay(Display, numbers);
-        printDisplay(Display);
-        Sleep(1000);
         system("cls");
+        PrintDisplay(Display, numbers);
+        Sleep(1000);
     }
 }
