@@ -6,11 +6,11 @@
 
 #include "quicksort.h"
 
-void QuickSort(std::vector<int>* numbers) {
-   QuickSortRecurse(numbers, 0, numbers->size() - 1);
+void QuickSort(std::vector<int>& numbers) {
+   QuickSortRecurse(numbers, 0, numbers.size() - 1);
 }
 
-void QuickSortRecurse(std::vector<int>* numbers, int i, int k) {
+void QuickSortRecurse(std::vector<int>& numbers, int i, int k) {
    int j = 0;
    
    /* Base case: If there are 1 or zero elements to sort,
@@ -31,7 +31,7 @@ void QuickSortRecurse(std::vector<int>* numbers, int i, int k) {
    return;
 }
 
-int Partition(std::vector<int>* numbers, int i, int k) {
+int Partition(std::vector<int>& numbers, int i, int k) {
    int l = 0;
    int h = 0;
    int midpoint = 0;
@@ -41,7 +41,7 @@ int Partition(std::vector<int>* numbers, int i, int k) {
    
    /* Pick middle element as pivot */
    midpoint = i + (k - i) / 2;
-   pivot = (*numbers)[midpoint];
+   pivot = numbers[midpoint];
    
    l = i;
    h = k;
@@ -49,12 +49,12 @@ int Partition(std::vector<int>* numbers, int i, int k) {
    while (!done) {
       
       /* Increment l while numbers[l] < pivot */
-      while ((*numbers)[l] < pivot) {
+      while (numbers[l] < pivot) {
          ++l;
       }
       
       /* Decrement h while pivot < numbers[h] */
-      while (pivot < (*numbers)[h]) {
+      while (pivot < numbers[h]) {
          --h;
       }
       
@@ -66,9 +66,9 @@ int Partition(std::vector<int>* numbers, int i, int k) {
       else {
          /* Swap numbers[l] and numbers[h],
           update l and h */
-         temp = (*numbers)[l];
-         (*numbers)[l] = (*numbers)[h];
-         (*numbers)[h] = temp;
+         temp = numbers[l];
+         numbers[l] = numbers[h];
+         numbers[h] = temp;
          
          ++l;
          --h;

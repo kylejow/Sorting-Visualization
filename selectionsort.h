@@ -3,6 +3,6 @@
 
 #include <vector>
 
-void SelectionSort(std::vector<int>* numbers);
+void SelectionSort(std::vector<int>& numbers, std::vector<std::vector<char>>& Display);
 
 #endif

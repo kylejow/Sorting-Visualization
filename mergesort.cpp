@@ -6,12 +6,12 @@
 
 #include "mergesort.h"
 
-void MergeSort(std::vector<int>* numbers) {
-   MergeSortRecurse(numbers, 0, numbers->size() - 1);
+void MergeSort(std::vector<int>& numbers) {
+   MergeSortRecurse(numbers, 0, numbers.size() - 1);
 }
 
 
-void MergeSortRecurse(std::vector<int>* numbers, int i, int k) {
+void MergeSortRecurse(std::vector<int>& numbers, int i, int k) {
    int j = 0;
    
    if (i < k) {
@@ -26,7 +26,7 @@ void MergeSortRecurse(std::vector<int>* numbers, int i, int k) {
    }
 }
 
-void Merge(std::vector<int>* numbers, int i, int j, int k) {
+void Merge(std::vector<int>& numbers, int i, int j, int k) {
    int mergedSize = k - i + 1;                // Size of merged partition
    int mergePos = 0;                          // Position to insert merged number
    int leftPos = 0;                           // Position of elements in left partition
@@ -40,12 +40,12 @@ void Merge(std::vector<int>* numbers, int i, int j, int k) {
    
    // Add smallest element from left or right partition to merged numbers
    while (leftPos <= j && rightPos <= k) {
-      if ((*numbers)[leftPos] < (*numbers)[rightPos]) {
-         mergedNumbers[mergePos] = (*numbers)[leftPos];
+      if (numbers[leftPos] < numbers[rightPos]) {
+         mergedNumbers[mergePos] = numbers[leftPos];
          ++leftPos;
       }
       else {
-         mergedNumbers[mergePos] = (*numbers)[rightPos];
+         mergedNumbers[mergePos] = numbers[rightPos];
          ++rightPos;
          
       }
@@ -54,20 +54,20 @@ void Merge(std::vector<int>* numbers, int i, int j, int k) {
    
    // If left partition is not empty, add remaining elements to merged numbers
    while (leftPos <= j) {
-      mergedNumbers[mergePos] = (*numbers)[leftPos];
+      mergedNumbers[mergePos] = numbers[leftPos];
       ++leftPos;
       ++mergePos;
    }
    
    // If right partition is not empty, add remaining elements to merged numbers
    while (rightPos <= k) {
-      mergedNumbers[mergePos] = (*numbers)[rightPos];
+      mergedNumbers[mergePos] = numbers[rightPos];
       ++rightPos;
       ++mergePos;
    }
    
    // Copy merge number back to numbers
    for (mergePos = 0; mergePos < mergedSize; ++mergePos) {
-      (*numbers)[i + mergePos] = mergedNumbers[mergePos];
+      numbers[i + mergePos] = mergedNumbers[mergePos];
    }
 }

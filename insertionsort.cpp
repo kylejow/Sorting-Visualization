@@ -6,21 +6,21 @@
 
 #include "insertionsort.h"
 
-void InsertionSort(std::vector<int>* numbers) {
+void InsertionSort(std::vector<int>& numbers) {
    int i = 0;
    int j = 0;
    int temp = 0;  // Temporary variable for swap
    
-   for (i = 1; i < numbers->size(); ++i) {
+   for (i = 1; i < (int)numbers.size(); ++i) {
       j = i;
       // Insert numbers[i] into sorted part
       // stopping once numbers[i] in correct position
       
-      while (j > 0 && (*numbers)[j] < (*numbers)[j - 1]) { // increment counts right before comparison is made
+      while (j > 0 && numbers[j] < numbers[j - 1]) { // increment counts right before comparison is made
          // Swap numbers[j] and numbers[j - 1]
-         temp = (*numbers)[j];
-         (*numbers)[j] = (*numbers)[j - 1];
-         (*numbers)[j - 1] = temp;
+         temp = numbers[j];
+         numbers[j] = numbers[j - 1];
+         numbers[j - 1] = temp;
          --j;
       }
    }

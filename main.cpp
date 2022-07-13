@@ -2,12 +2,15 @@
 #include <iostream>
 #include "display.h"
 #include "selectionsort.h"
+#include "mergesort.h"
+#include "insertionsort.h"
+#include "quicksort.h"
 
 using std::cout;
 using std::endl;
 using std::cin;
 using std::vector;
-#define SizeDisplay 50
+#define SizeDisplay 5
 
 static vector<vector<char>> Display;
 
@@ -27,8 +30,9 @@ int main(){
         cin >> input;
         if(input == "1"){
             system ("cls");
-            vector<int> tosort = {5, 2, 4, 7, 6};
-            SelectionSort(&tosort);
+            vector<int> tosort = {4, 2, 3, 0, 1};
+            SelectionSort(tosort, Display);
+            //printvect(tosort);
             system("pause");
         }else if(input == "2"){
             system ("cls");
