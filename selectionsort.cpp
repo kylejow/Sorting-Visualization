@@ -1,4 +1,5 @@
 #include "selectionsort.h"
+#include "display.h"
 
 void SelectionSort(std::vector<int>* numbers){
     int length = (*numbers).size();
@@ -12,5 +13,6 @@ void SelectionSort(std::vector<int>* numbers){
         int temp = (*numbers)[min];
         (*numbers)[min] = (*numbers)[i];
         (*numbers)[i] = temp;
+        printvect(numbers);
     }
 }
