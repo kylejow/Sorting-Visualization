@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include "display.h"
+#include "selectionsort.h"
 
 using std::cout;
 using std::endl;
@@ -10,15 +11,20 @@ using std::vector;
 
 static vector<vector<char>> Display;
 
-
+void print(vector<int>* vect){
+    auto iter = (*vect).begin();
+    while(iter != (*vect).end()){
+        cout << *iter << ", ";
+        iter++;
+    }
+    cout << "\n";
+}
 
 int main(){
     vector<char> line(SizeDisplay, ' ');
     for(int i = 0; i < SizeDisplay; i++){
         Display.push_back(line);
     }
-    printDisplay(Display);
-    system("pause");
     std::string input;
     while(1){
         system("cls");
@@ -30,6 +36,11 @@ int main(){
         cin >> input;
         if(input == "1"){
             system ("cls");
+            // vector<int> tosort = {5, 2, 4, 7, 6};
+            // print(&tosort);
+            // SelectionSort(&tosort);
+            // print(&tosort);
+            // system("pause");
         }else if(input == "2"){
             system ("cls");
         }else if(input == "3"){
