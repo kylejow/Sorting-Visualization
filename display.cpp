@@ -34,7 +34,7 @@ void PrintSteps(std::vector<std::vector<int>>& steps){
     while(iter != steps.end()){
         system("cls");
         PrintDisplay(Display, *iter);
-        Sleep(1000);
+        Sleep(250);
         iter++;
     }
 }

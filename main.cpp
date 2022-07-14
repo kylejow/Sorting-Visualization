@@ -1,3 +1,8 @@
+/* References
+shuffle vector      https://en.cppreference.com/w/cpp/algorithm/random_shuffle
+check input stream  https://stackoverflow.com/questions/18728754/checking-cin-input-stream-produces-an-integer
+*/
+
 #include <vector>
 #include <iostream>
 #include "display.h"
@@ -5,17 +10,38 @@
 #include "insertionsort.h"
 #include "mergesort.h"
 #include "quicksort.h"
+#include <algorithm>
+#include <random>
 
 using std::cout;
 using std::endl;
 using std::cin;
 using std::vector;
-#define SizeDisplay 5
+using std::string;
 
 int main(){
-    vector<int> randarray = {4, 2, 3, 0, 1};
+    int num_elements;
+    system("cls");
+    cout << "Number of elements: " << endl;
+    cin >> num_elements;
+    while(cin.fail()){
+        system("cls");
+        cout << "Number of elements: " << endl;
+        cin.clear();
+        cin.ignore(256,'\n');
+        cin >> num_elements;
+    }
+
+    vector<int> tosort(num_elements);
+    std::iota(tosort.begin(), tosort.end(), 0);
+
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(tosort.begin(), tosort.end(), g);
+
     vector<vector<int>> steps;
-    steps.push_back(randarray);
+    steps.push_back(tosort);
+
     std::string input;
     while(1){
         system("cls");
@@ -27,22 +53,22 @@ int main(){
         cin >> input;
         if(input == "1"){
             system ("cls");
-            auto tosort = randarray;
-            SelectionSort(tosort, steps);
+            vector vect = tosort;
+            SelectionSort(vect, steps);
             PrintSteps(steps);
             steps.clear();
             system("pause");
         }else if(input == "2"){
             system ("cls");
-            //InsertionSort(tosort, steps);
+            //InsertionSort(vect, steps);
             system("pause");
         }else if(input == "3"){
             system ("cls");
-            //MergeSort(tosort, steps);
+            //MergeSort(vect, steps);
             system("pause");
         }else if(input == "4"){
             system ("cls");
-            //QuickSort(tosort, steps);
+            //QuickSort(vect, steps);
             system("pause");
         }else if(input == "q")
             break;
