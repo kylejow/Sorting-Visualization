@@ -19,11 +19,22 @@ void PrintDisplay(std::vector<std::vector<char>> Display, std::vector<int>& vect
     }
 }
 
-void printvect(std::vector<int>& vect){
+void Printvect(std::vector<int>& vect){
     auto iter = vect.begin();
     while(iter != vect.end()){
         std::cout << *iter << ", ";
         iter++;
     }
     std::cout << "\n";
+}
+
+void PrintSteps(std::vector<std::vector<int>>& steps){
+    std::vector<std::vector<char>> Display(steps[0].size(), std::vector<char>(steps[0].size(), ' '));
+    auto iter = steps.begin();
+    while(iter != steps.end()){
+        system("cls");
+        PrintDisplay(Display, *iter);
+        Sleep(1000);
+        iter++;
+    }
 }

@@ -4,6 +4,6 @@
 #include <vector>
 #include <windows.h>
 
-void SelectionSort(std::vector<int>& numbers, std::vector<std::vector<char>>& Display);
+void SelectionSort(std::vector<int>& numbers, std::vector<std::vector<int>>& steps);
 
 #endif
