@@ -6,7 +6,7 @@
 
 #include "insertionsort.h"
 
-void InsertionSort(std::vector<int>& numbers) {
+void InsertionSort(std::vector<int>& numbers, std::vector<std::vector<int>>& steps) {
    int i = 0;
    int j = 0;
    int temp = 0;  // Temporary variable for swap
@@ -23,6 +23,7 @@ void InsertionSort(std::vector<int>& numbers) {
          numbers[j - 1] = temp;
          --j;
       }
+      steps.push_back(numbers);
    }
    
    return;

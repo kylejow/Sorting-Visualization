@@ -60,7 +60,10 @@ int main(){
             system("pause");
         }else if(input == "2"){
             system ("cls");
-            //InsertionSort(vect, steps);
+            vector vect = tosort;
+            InsertionSort(vect, steps);
+            PrintSteps(steps);
+            steps.clear();
             system("pause");
         }else if(input == "3"){
             system ("cls");

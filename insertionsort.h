@@ -9,6 +9,6 @@
 
 #include <vector>
 
-void InsertionSort(std::vector<int>& numbers);
+void InsertionSort(std::vector<int>& numbers, std::vector<std::vector<int>>& steps);
 
 #endif
