@@ -67,11 +67,17 @@ int main(){
             system("pause");
         }else if(input == "3"){
             system ("cls");
-            //MergeSort(vect, steps);
+            vector vect = tosort;
+            MergeSort(vect, steps);
+            PrintSteps(steps);
+            steps.clear();
             system("pause");
         }else if(input == "4"){
             system ("cls");
+            vector vect = tosort;
             //QuickSort(vect, steps);
+            PrintSteps(steps);
+            steps.clear();
             system("pause");
         }else if(input == "q")
             break;

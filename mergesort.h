@@ -9,8 +9,8 @@
 
 #include <vector>
 
-void MergeSort(std::vector<int>& numbers);
-void MergeSortRecurse(std::vector<int>& numbers, int i, int k);
-void Merge(std::vector<int>& numbers, int i, int j, int k);
+void MergeSort(std::vector<int>& numbers, std::vector<std::vector<int>>& steps);
+void MergeSortRecurse(std::vector<int>& numbers, int i, int k, std::vector<std::vector<int>>& steps);
+void Merge(std::vector<int>& numbers, int i, int j, int k, std::vector<std::vector<int>>& steps);
 
 #endif

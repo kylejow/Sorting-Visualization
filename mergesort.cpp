@@ -6,27 +6,27 @@
 
 #include "mergesort.h"
 
-void MergeSort(std::vector<int>& numbers) {
-   MergeSortRecurse(numbers, 0, numbers.size() - 1);
+void MergeSort(std::vector<int>& numbers, std::vector<std::vector<int>>& steps) {
+   MergeSortRecurse(numbers, 0, numbers.size() - 1, steps);
 }
 
-
-void MergeSortRecurse(std::vector<int>& numbers, int i, int k) {
+void MergeSortRecurse(std::vector<int>& numbers, int i, int k, std::vector<std::vector<int>>& steps) {
    int j = 0;
    
    if (i < k) {
       j = (i + k) / 2;  // Find the midpoint in the partition
       
       // Recursively sort left and right partitions
-      MergeSortRecurse(numbers, i, j);
-      MergeSortRecurse(numbers, j + 1, k);
+      MergeSortRecurse(numbers, i, j, steps);
+      MergeSortRecurse(numbers, j + 1, k, steps);
       
       // Merge left and right partition in sorted order
-      Merge(numbers, i, j, k);
+      Merge(numbers, i, j, k, steps);
+      steps.push_back(numbers);
    }
 }
 
-void Merge(std::vector<int>& numbers, int i, int j, int k) {
+void Merge(std::vector<int>& numbers, int i, int j, int k, std::vector<std::vector<int>>& steps) {
    int mergedSize = k - i + 1;                // Size of merged partition
    int mergePos = 0;                          // Position to insert merged number
    int leftPos = 0;                           // Position of elements in left partition
