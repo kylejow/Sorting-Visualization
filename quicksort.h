@@ -9,8 +9,8 @@
 
 #include <vector>
 
-void QuickSort(std::vector<int>& numbers);
-void QuickSortRecurse(std::vector<int>& numbers, int i, int k);
+void QuickSort(std::vector<int>& numbers, std::vector<std::vector<int>>& steps);
+void QuickSortRecurse(std::vector<int>& numbers, int i, int k, std::vector<std::vector<int>>& steps);
 int Partition(std::vector<int>& numbers, int i, int k);
 
 #endif

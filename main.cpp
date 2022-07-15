@@ -75,7 +75,7 @@ int main(){
         }else if(input == "4"){
             system ("cls");
             vector vect = tosort;
-            //QuickSort(vect, steps);
+            QuickSort(vect, steps);
             PrintSteps(steps);
             steps.clear();
             system("pause");

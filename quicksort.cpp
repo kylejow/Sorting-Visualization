@@ -6,11 +6,11 @@
 
 #include "quicksort.h"
 
-void QuickSort(std::vector<int>& numbers) {
-   QuickSortRecurse(numbers, 0, numbers.size() - 1);
+void QuickSort(std::vector<int>& numbers, std::vector<std::vector<int>>& steps) {
+   QuickSortRecurse(numbers, 0, numbers.size() - 1, steps);
 }
 
-void QuickSortRecurse(std::vector<int>& numbers, int i, int k) {
+void QuickSortRecurse(std::vector<int>& numbers, int i, int k, std::vector<std::vector<int>>& steps) {
    int j = 0;
    
    /* Base case: If there are 1 or zero elements to sort,
@@ -25,9 +25,9 @@ void QuickSortRecurse(std::vector<int>& numbers, int i, int k) {
    
    /* Recursively sort low partition (i to j) and
     high partition (j + 1 to k) */
-   QuickSortRecurse(numbers, i, j);
-   QuickSortRecurse(numbers, j + 1, k);
-   
+   steps.push_back(numbers);
+   QuickSortRecurse(numbers, i, j, steps);
+   QuickSortRecurse(numbers, j + 1, k, steps);
    return;
 }
 
@@ -74,6 +74,5 @@ int Partition(std::vector<int>& numbers, int i, int k) {
          --h;
       }
    }
-   
    return h;
 }
