@@ -10,6 +10,7 @@ check input stream  https://stackoverflow.com/questions/18728754/checking-cin-in
 #include "insertionsort.h"
 #include "mergesort.h"
 #include "quicksort.h"
+#include "bubblesort.h"
 #include "cputimer.h"
 #include <algorithm>
 #include <random>
@@ -50,6 +51,7 @@ int main(){
              << "2. Insertion Sort\n"
              << "3. Merge Sort\n"
              << "4. Quick Sort\n"
+             << "5. Bubble Sort\n"
              << "\n\nq to exit" << endl;
         cin >> input;
         cputimer cputimer;
