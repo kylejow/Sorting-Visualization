@@ -10,6 +10,7 @@ check input stream  https://stackoverflow.com/questions/18728754/checking-cin-in
 #include "insertionsort.h"
 #include "mergesort.h"
 #include "quicksort.h"
+#include "cputimer.h"
 #include <algorithm>
 #include <random>
 
@@ -22,11 +23,11 @@ using std::string;
 int main(){
     int num_elements;
     system("cls");
-    cout << "Number of elements: " << endl;
+    cout << "Number of elements: ";
     cin >> num_elements;
     while(cin.fail()){
         system("cls");
-        cout << "Number of elements: " << endl;
+        cout << "Number of elements: ";
         cin.clear();
         cin.ignore(256,'\n');
         cin >> num_elements;
@@ -51,36 +52,37 @@ int main(){
              << "4. Quick Sort\n"
              << "\n\nq to exit" << endl;
         cin >> input;
+        cputimer cputimer;
         if(input == "1"){
             system ("cls");
             vector vect = tosort;
+            cputimer.Reset();
             SelectionSort(vect, steps);
-            PrintSteps(steps);
-            steps.clear();
-            system("pause");
         }else if(input == "2"){
             system ("cls");
             vector vect = tosort;
+            cputimer.Reset();
             InsertionSort(vect, steps);
-            PrintSteps(steps);
-            steps.clear();
-            system("pause");
         }else if(input == "3"){
             system ("cls");
             vector vect = tosort;
+            cputimer.Reset();
             MergeSort(vect, steps);
-            PrintSteps(steps);
-            steps.clear();
-            system("pause");
         }else if(input == "4"){
             system ("cls");
             vector vect = tosort;
+            cputimer.Reset();
             QuickSort(vect, steps);
-            PrintSteps(steps);
-            steps.clear();
-            system("pause");
         }else if(input == "q")
             break;
+        else{
+            continue;
+        }
+        cputimer.Stop();
+        PrintSteps(steps);
+        steps.clear();
+        cout << "Sorting completed in " << cputimer.Elapsed() << " milliseconds.\n" << endl;
+        system("pause");
     }
     system ("cls");
     return 0;

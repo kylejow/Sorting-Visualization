@@ -37,4 +37,5 @@ void PrintSteps(std::vector<std::vector<int>>& steps){
         Sleep(100);
         iter++;
     }
+    std::cout << '\n';
 }
