@@ -75,6 +75,11 @@ int main(){
             vector vect = tosort;
             cputimer.Reset();
             QuickSort(vect, steps);
+        }else if(input == "5"){
+            system ("cls");
+            vector vect = tosort;
+            cputimer.Reset();
+            BubbleSort(vect, steps);
         }else if(input == "q")
             break;
         else{

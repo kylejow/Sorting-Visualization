@@ -15,6 +15,7 @@ void BubbleSort(std::vector<int>& numbers, std::vector<std::vector<int>>& steps)
                 swapped = true;
             }
         }
+        steps.push_back(numbers);
         if(swapped == false){
             break;
         }
