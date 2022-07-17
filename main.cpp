@@ -5,6 +5,8 @@ check input stream  https://stackoverflow.com/questions/18728754/checking-cin-in
 
 #include <vector>
 #include <iostream>
+#include <algorithm>
+#include <random>
 #include "display.h"
 #include "selectionsort.h"
 #include "insertionsort.h"
@@ -12,8 +14,6 @@ check input stream  https://stackoverflow.com/questions/18728754/checking-cin-in
 #include "quicksort.h"
 #include "bubblesort.h"
 #include "cputimer.h"
-#include <algorithm>
-#include <random>
 
 using std::cout;
 using std::endl;
@@ -21,18 +21,10 @@ using std::cin;
 using std::vector;
 using std::string;
 
+int GetElements(void);
+
 int main(){
-    int num_elements;
-    system("cls");
-    cout << "Number of elements: ";
-    cin >> num_elements;
-    while(cin.fail()){
-        system("cls");
-        cout << "Number of elements: ";
-        cin.clear();
-        cin.ignore(256,'\n');
-        cin >> num_elements;
-    }
+    int num_elements = GetElements();    
 
     vector<int> tosort(num_elements);
     std::iota(tosort.begin(), tosort.end(), 0);
@@ -52,6 +44,7 @@ int main(){
              << "3. Merge Sort\n"
              << "4. Quick Sort\n"
              << "5. Bubble Sort\n"
+             << "6. Choose number of elements\n"
              << "\n\nq to exit" << endl;
         cin >> input;
         cputimer cputimer;
@@ -80,6 +73,9 @@ int main(){
             vector vect = tosort;
             cputimer.Reset();
             BubbleSort(vect, steps);
+        }else if(input == "6"){
+            num_elements = GetElements();
+            continue;
         }else if(input == "q")
             break;
         else{
@@ -93,4 +89,19 @@ int main(){
     }
     system ("cls");
     return 0;
+}
+
+int GetElements(void){
+    int num_elements;
+    system("cls");
+    cout << "Number of elements: ";
+    cin >> num_elements;
+    while(cin.fail()){
+        system("cls");
+        cout << "Number of elements: ";
+        cin.clear();
+        cin.ignore(256,'\n');
+        cin >> num_elements;
+    }
+    return num_elements;
 }
