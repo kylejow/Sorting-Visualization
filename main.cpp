@@ -22,17 +22,12 @@ using std::vector;
 using std::string;
 
 int GetElements(void);
+vector<int> CreateRand(int length);
 
 int main(){
     int num_elements = GetElements();    
 
-    vector<int> tosort(num_elements);
-    std::iota(tosort.begin(), tosort.end(), 0);
-
-    std::random_device rd;
-    std::mt19937 g(rd());
-    std::shuffle(tosort.begin(), tosort.end(), g);
-
+    vector<int> tosort = CreateRand(num_elements);
     vector<vector<int>> steps;
     steps.push_back(tosort);
 
@@ -75,6 +70,10 @@ int main(){
             BubbleSort(vect, steps);
         }else if(input == "6"){
             num_elements = GetElements();
+            tosort.clear();
+            steps.clear();
+            tosort = CreateRand(num_elements);
+            steps.push_back(tosort);
             continue;
         }else if(input == "q")
             break;
@@ -104,4 +103,13 @@ int GetElements(void){
         cin >> num_elements;
     }
     return num_elements;
+}
+
+vector<int> CreateRand(int length){
+    vector<int> tosort(length);
+    std::iota(tosort.begin(), tosort.end(), 0);
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(tosort.begin(), tosort.end(), g);
+    return tosort;
 }
