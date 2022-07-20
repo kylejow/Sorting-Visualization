@@ -32,6 +32,8 @@ int main(){
     steps.push_back(tosort);
 
     std::string input;
+    cputimer cputimer;
+
     while(1){
         system("cls");
         cout << "1. Selection Sort\n"
@@ -42,30 +44,26 @@ int main(){
              << "6. Choose number of elements\n"
              << "\n\nq to exit" << endl;
         cin >> input;
-        cputimer cputimer;
+
+        vector vect = tosort;
         if(input == "1"){
             system ("cls");
-            vector vect = tosort;
             cputimer.Reset();
             SelectionSort(vect, steps);
         }else if(input == "2"){
             system ("cls");
-            vector vect = tosort;
             cputimer.Reset();
             InsertionSort(vect, steps);
         }else if(input == "3"){
             system ("cls");
-            vector vect = tosort;
             cputimer.Reset();
             MergeSort(vect, steps);
         }else if(input == "4"){
             system ("cls");
-            vector vect = tosort;
             cputimer.Reset();
             QuickSort(vect, steps);
         }else if(input == "5"){
             system ("cls");
-            vector vect = tosort;
             cputimer.Reset();
             BubbleSort(vect, steps);
         }else if(input == "6"){
