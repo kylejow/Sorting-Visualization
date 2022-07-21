@@ -44,26 +44,21 @@ int main(){
              << "6. Choose number of elements\n"
              << "\n\nq to exit" << endl;
         cin >> input;
-
+        system ("cls");
         vector vect = tosort;
         if(input == "1"){
-            system ("cls");
             cputimer.Reset();
             SelectionSort(vect, steps);
         }else if(input == "2"){
-            system ("cls");
             cputimer.Reset();
             InsertionSort(vect, steps);
         }else if(input == "3"){
-            system ("cls");
             cputimer.Reset();
             MergeSort(vect, steps);
         }else if(input == "4"){
-            system ("cls");
             cputimer.Reset();
             QuickSort(vect, steps);
         }else if(input == "5"){
-            system ("cls");
             cputimer.Reset();
             BubbleSort(vect, steps);
         }else if(input == "6"){
