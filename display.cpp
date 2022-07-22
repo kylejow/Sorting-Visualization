@@ -1,3 +1,6 @@
+//References
+//clear screen    https://cplusplus.com/forum/beginner/18191/
+
 #include "display.h"
 
 // pass by value to retain blank display
@@ -43,9 +46,18 @@ void PrintSteps(vector<vector<int>>& steps){
 
     auto iter2 = Displays.begin();
     while(iter2 != Displays.end()){
-        system("cls");
+        ClearScreen();
         PrintDisplay(*iter2);
         Sleep(100);
         iter2++;
     }
+}
+
+void ClearScreen(){
+    HANDLE hOut;
+    COORD Position;
+    hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    Position.X = 0;
+    Position.Y = 0;
+    SetConsoleCursorPosition(hOut, Position);
 }
