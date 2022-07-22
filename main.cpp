@@ -16,7 +16,6 @@ check input stream  https://stackoverflow.com/questions/18728754/checking-cin-in
 #include "cputimer.h"
 
 using std::cout;
-using std::endl;
 using std::cin;
 using std::vector;
 using std::string;
@@ -42,7 +41,7 @@ int main(){
              << "4. Quick Sort\n"
              << "5. Bubble Sort\n"
              << "6. Choose number of elements\n"
-             << "\n\nq to exit" << endl;
+             << "\n\nq to exit\n\n";
         cin >> input;
         system ("cls");
         vector vect = tosort;
@@ -76,7 +75,7 @@ int main(){
         cputimer.Stop();
         PrintSteps(steps);
         steps.clear();
-        cout << "Sorting completed in " << cputimer.Elapsed() << " milliseconds.\n" << endl;
+        cout << "\nSorting completed in " << cputimer.Elapsed() << " milliseconds.\n\n\n";
         system("pause");
     }
     system ("cls");

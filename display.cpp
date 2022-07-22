@@ -7,7 +7,6 @@
 vector<vector<char>> GetDisplay(vector<vector<char>> Display, vector<int>& step){
     for(long long unsigned int i = 0; i < step.size(); i++){
         int k = step.size()-1-i;
-        //cout << i << endl;
         for(int j = 0; j < step[i]; j++){
             Display[i+k][i] = '*';
             k--;
