@@ -32,6 +32,7 @@ int main(){
 
     std::string input;
     cputimer cputimer;
+    setCursor(false);
 
     while(1){
         system("cls");
@@ -79,6 +80,7 @@ int main(){
         system("pause");
     }
     system ("cls");
+    setCursor(true);
     return 0;
 }
 

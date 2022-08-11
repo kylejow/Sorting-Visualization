@@ -15,5 +15,6 @@ void PrintDisplay(vector<vector<char>>& Display);
 void Printvect(vector<int>& vect);
 void PrintSteps(vector<vector<int>>& steps);
 void ClearScreen();
+void setCursor(bool visible);
 
 #endif
